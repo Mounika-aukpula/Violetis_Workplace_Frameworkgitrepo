@@ -84,5 +84,12 @@ public class HomePage extends BasePage {
     public void clickPartner() { click(HomePageLocators.PARTNER); }
     public void clickPricing() { click(HomePageLocators.PRICING); }
     public void clickLogin() { click(HomePageLocators.LOGIN ); }
+    
+    //click signupmenu
+    public void clicksignupmenu()
+    {
+    	click(HomePageLocators.signupmenu);
+    }
+    
 }
 

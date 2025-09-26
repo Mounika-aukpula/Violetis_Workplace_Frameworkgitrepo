@@ -11,6 +11,9 @@ import com.violetis.Utilities.ConfigReader;
 import com.violetis.Utilities.DriverFactory;
 import com.violetis.Utilities.WaitUtils;
 
+import org.testng.annotations.Listeners;
+import com.violetis.Listners.TestListner;
+@Listeners(TestListner.class) 
 public class BaseTest {
 	protected WebDriver driver;
     protected Logger log = LogManager.getLogger(this.getClass());

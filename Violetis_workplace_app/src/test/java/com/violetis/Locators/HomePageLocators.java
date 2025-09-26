@@ -18,4 +18,11 @@ public class HomePageLocators {
     public static final By Logo=By.xpath("/html/body/div/nav/div/a/img");
     public static final By Signupfree=By.linkText("Sign up for free trial");
     public static final By Reqdemo=By.linkText("Request Demo");
-}
+    
+    public static final By Signupforfree=By.linkText("Sign up for free trial");
+    public static final By reqdemo=By.linkText("Request Demo");
+    
+    public static final By signupmenu=By.xpath("//*[@id=\"navbarContent\"]/div/div/a");
+    
+    
+    }
