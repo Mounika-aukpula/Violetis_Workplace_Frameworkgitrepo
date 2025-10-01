@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Failed suite [AllTests]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="classes" name="HomepageTests(failed)">
+    <classes>
+      <class name="com.violetis.Tests.HomePageTest">
+        <methods>
+          <include name="testCRMSubMenus"/>
+          <include name="testMailSubMenus"/>
+          <include name="testHRSubMenus"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.violetis.Tests.HomePageTest -->
+    </classes>
+  </test> <!-- HomepageTests(failed) -->
+  <test thread-count="5" parallel="classes" name="SignupTests(failed)">
+    <classes>
+      <class name="com.violetis.Tests.SignupTest">
+        <methods>
+          <include name="testSignUpWithGoogle"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.violetis.Tests.SignupTest -->
+    </classes>
+  </test> <!-- SignupTests(failed) -->
+</suite> <!-- Failed suite [AllTests] -->
