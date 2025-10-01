@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.violetis.Tests.SignupTest">
+      <class name="com.violetis.Tests.HomePageTest">
         <methods>
-          <include name="testSignUpWithGoogle"/>
+          <include name="testCRMSubMenus"/>
+          <include name="testMailSubMenus"/>
+          <include name="testHRSubMenus"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.violetis.Tests.SignupTest -->
+      </class> <!-- com.violetis.Tests.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -11,7 +11,7 @@
     <test name="Violetis Tests">
         <classes>
             <class name="com.violetis.Tests.HomePageTest"/>
-            
+            <class name="com.violetis.Tests.SignUpTest"/>
         </classes>
     </test>
 
