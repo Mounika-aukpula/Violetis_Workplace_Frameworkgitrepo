@@ -6,7 +6,6 @@
       <class name="com.violetis.Tests.HomePageTest">
         <methods>
           <include name="testCRMSubMenus"/>
-          <include name="testMailSubMenus"/>
           <include name="testHRSubMenus"/>
           <include name="tearDown"/>
           <include name="setUp"/>

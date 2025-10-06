@@ -18,32 +18,32 @@ public class DriverFactory {
 	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     private static final Logger log = LogManager.getLogger(DriverFactory.class);
 
-    public static void initDriver() {
+    // Initialize WebDriver with browser parameter
+    public static void initDriver(String browser) {
         if (driver.get() == null) {
-            String browser = ConfigReader.getProperty("browser");
+            if (browser == null || browser.isEmpty()) {
+                browser = "chrome"; // default browser
+            }
             log.info("Initializing WebDriver for browser: {}", browser);
 
             switch (browser.toLowerCase()) {
                 case "chrome":
-                    log.info("Setting up ChromeDriver...");
-                    ChromeOptions options = new ChromeOptions();
+                    ChromeOptions chromeOptions = new ChromeOptions();
                     Map<String, Object> prefs = new HashMap<>();
                     prefs.put("profile.credentials_enable_service", false);
-                    options.setExperimentalOption("prefs", prefs);
+                    chromeOptions.setExperimentalOption("prefs", prefs);
                     WebDriverManager.chromedriver().setup();
-                    driver.set(new ChromeDriver(options));
+                    driver.set(new ChromeDriver(chromeOptions));
                     log.info("✅ ChromeDriver launched successfully.");
                     break;
 
                 case "firefox":
-                    log.info("Setting up FirefoxDriver...");
                     WebDriverManager.firefoxdriver().setup();
                     driver.set(new FirefoxDriver());
                     log.info("✅ FirefoxDriver launched successfully.");
                     break;
 
                 case "edge":
-                    log.info("Setting up EdgeDriver...");
                     WebDriverManager.edgedriver().setup();
                     EdgeOptions edgeOptions = new EdgeOptions();
                     driver.set(new EdgeDriver(edgeOptions));
@@ -51,34 +51,26 @@ public class DriverFactory {
                     break;
 
                 default:
-                    log.error("❌ Unsupported browser: {}", browser);
                     throw new RuntimeException("Unsupported browser: " + browser);
             }
 
-            getDriver().manage().window().maximize();
+            driver.get().manage().window().maximize();
             log.info("Browser window maximized.");
-        } else {
-            log.warn("⚠️ Driver is already initialized. Returning existing instance.");
         }
     }
 
+    // Return WebDriver for current thread
     public static WebDriver getDriver() {
-        if (driver.get() == null) {
-            log.warn("⚠️ getDriver() called before initDriver(). Returning null.");
-        } else {
-            log.debug("Returning active WebDriver instance.");
-        }
         return driver.get();
     }
 
+    // Quit driver and remove from ThreadLocal
     public static void quitDriver() {
         if (driver.get() != null) {
-            log.info("Closing the browser and quitting WebDriver...");
+            log.info("Closing browser...");
             driver.get().quit();
-            driver.remove(); // ✅ important: remove from ThreadLocal
-            log.info("✅ Browser closed and WebDriver instance removed.");
-        } else {
-            log.warn("⚠️ quitDriver() called, but no WebDriver instance was active.");
+            driver.remove();
+            log.info("Browser closed.");
         }
     }
 }

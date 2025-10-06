@@ -9,15 +9,14 @@ public class ConfigReader {
 	 private static Properties properties;
 	 private static final Logger log = LogManager.getLogger(ConfigReader.class);
 	 static {
-	        try {
+		 try {
 	            log.info("Loading config.properties file...");
-	            FileInputStream fis = new FileInputStream(
-	                    "C:\\VIOLETIS\\VIOLETIS_WORKPLACE_APP\\VIOLETIS_WORKPLACEAPP\\src\\main\\Resources\\Config.properties"
-	            );
 	            properties = new Properties();
-	            properties.load(fis);
+	            properties.load(ConfigReader.class
+	                                .getClassLoader()
+	                                .getResourceAsStream("config.properties"));
 	            log.info("config.properties file loaded successfully.");
-	        } catch (IOException e) {
+	        } catch (Exception e) {
 	            log.error("❌ Failed to load config.properties file!", e);
 	            throw new RuntimeException("Failed to load config.properties file!", e);
 	        }

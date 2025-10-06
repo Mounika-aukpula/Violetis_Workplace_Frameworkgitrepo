@@ -70,12 +70,7 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
-<dependency>
-    <groupId>io.qameta.allure</groupId>
-    <artifactId>allure-testng</artifactId>
-    <version>2.30.0</version>
-</dependency>
+   
     <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
 <dependency>
     <groupId>org.slf4j</groupId>
@@ -97,13 +92,6 @@
             <suiteXmlFile>testng.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
-      </plugin>
-
-      <!-- Allure Maven Plugin -->
-      <plugin>
-        <groupId>io.qameta.allure</groupId>
-        <artifactId>allure-maven</artifactId>
-        <version>2.16.1</version>
       </plugin>
     </plugins>
   </build>

@@ -10,7 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import com.violetis.Utilities.ConfigReader;
 import com.violetis.Utilities.DriverFactory;
 import com.violetis.Utilities.WaitUtils;
-
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Listeners;
 import com.violetis.Listners.TestListner;
 @Listeners(TestListner.class) 
@@ -18,32 +19,25 @@ public class BaseTest {
 	protected WebDriver driver;
     protected Logger log = LogManager.getLogger(this.getClass());
 
+    @Parameters("browser") 
     @BeforeMethod
-    public void setUp() {
+    public void setUp(@Optional("chrome") String browser) {
         log.info("===== Test setup started =====");
+        log.info("Browser to run: {}", browser);
 
-
-        // ✅ Init driver (no return)
-        DriverFactory.initDriver();
-
-        // ✅ Get driver for current thread
+        // Initialize WebDriver
+        DriverFactory.initDriver(browser);
         driver = DriverFactory.getDriver();
-        log.info("Driver initialized for browser: {}", ConfigReader.getProperty("browser"));
 
-        // Implicit wait (can be kept low because we use explicit waits in BasePage/WaitUtils)
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.manage().window().maximize();
-        log.info("Browser window maximized and implicit wait applied.");
 
-        // Navigate to application URL from config.properties
-        String appUrl = ConfigReader.getProperty("url");
+        // Navigate to URL
+        String appUrl = ConfigReader.getProperty("url"); // read URL from config.properties
         driver.get(appUrl);
         log.info("Navigated to application URL: {}", appUrl);
 
-        // Ensure page is fully loaded before test
+        // Wait for page load
         WaitUtils.waitForPageLoad(driver, 15);
-        log.info("Page load completed for URL: {}", appUrl);
-
         log.info("===== Test setup completed =====");
     }
 
@@ -51,7 +45,6 @@ public class BaseTest {
     public void tearDown() {
         log.info("===== Test teardown started =====");
         DriverFactory.quitDriver();
-        log.info("Driver quit successfully.");
         log.info("===== Test teardown completed =====");
     }
 }
