@@ -30,9 +30,10 @@ public class BaseTest {
         driver = DriverFactory.getDriver();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        WaitUtils.waitForPageLoad(driver, 80);
 
         // Navigate to URL
-        String appUrl = ConfigReader.getProperty("url"); // read URL from config.properties
+        String appUrl = ConfigReader.getProperty("loginurl"); // read URL from config.properties
         driver.get(appUrl);
         log.info("Navigated to application URL: {}", appUrl);
 

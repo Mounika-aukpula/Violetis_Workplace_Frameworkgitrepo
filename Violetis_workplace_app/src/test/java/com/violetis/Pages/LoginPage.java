@@ -1,32 +1,65 @@
 package com.violetis.Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.violetis.Base.BasePage;
 import com.violetis.Locators.LoginPageLocators;
+import com.violetis.Utilities.ConfigReader;
+import com.violetis.Utilities.WaitUtils;
 
 
 public class LoginPage extends BasePage {
 	public LoginPage(WebDriver driver) {
         super(driver);
     }
-public void enteruserorphno(String lgusername) {
-	click(LoginPageLocators.emailorph);
-}
-public void enterpassword(String lgpassword)
-{
-	click(LoginPageLocators.password);
-}
-public void clickloginbtn()
-{
-	click(LoginPageLocators.loginbtn);
-}
+	// Enter username or phone number (from config.properties)
+    public void enterUserOrPhNo() {
+    	WaitUtils.waitForElementVisible(driver, LoginPageLocators.emailorph, 20)
+        .sendKeys(ConfigReader.getProperty("uname"));
+        log.info("Entered username: {}");
+    }
 
-//Action methods
-public void login(String lgusername,String lgpassword)
-{
-enteruserorphno(lgusername);
-enterpassword(lgpassword);
-clickloginbtn();
-}
+    // Enter password (from config.properties)
+    public void enterPassword() {
+    	WaitUtils.waitForElementVisible(driver, LoginPageLocators.password, 10)
+        .sendKeys(ConfigReader.getProperty("password"));
+        log.info("Entered password");
+    }
+
+    // Click login button
+    public void clickLoginBtn() {
+    	WaitUtils.waitForElementVisible(driver, LoginPageLocators.loginbtn, 10).click();
+        log.info("Clicked on Login button");
+    }
+
+    // Optional: click password visibility icon
+    public void clickPasswordSeenIcon() {
+        click(LoginPageLocators.pswdseenicon);
+        log.info("Clicked on password visibility icon");
+    }
+
+    // Perform login using credentials from config.properties
+    public void login() {
+        log.info("Performing login using credentials from config.properties");
+        enterUserOrPhNo();
+        enterPassword();
+        clickLoginBtn();
+    }
+
+    // Perform login using custom credentials (for negative tests)
+    public void login(String username, String password) {
+        log.info("Performing login with custom credentials: {}", username);
+        type(LoginPageLocators.emailorph, username);
+        type(LoginPageLocators.password, password);
+        clickLoginBtn();
+    }
+
+    // Get login error message (replace with actual error locator if exists)
+    public String getLoginErrorMessage(By errorLocator) {
+        String msg = getText(errorLocator);
+        log.info("Login error message: {}", msg);
+        return msg;
+    }
 }

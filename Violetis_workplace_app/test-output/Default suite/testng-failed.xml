@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.violetis.Tests.HomePageTest">
+      <class name="com.violetis.Tests.empdashboard.ClockInOut">
         <methods>
-          <include name="testCRMSubMenus"/>
-          <include name="testMailSubMenus"/>
-          <include name="testHRSubMenus"/>
+          <include name="loginAndSetupDashboard"/>
           <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="testTotalWorkedHours"/>
         </methods>
-      </class> <!-- com.violetis.Tests.HomePageTest -->
+      </class> <!-- com.violetis.Tests.empdashboard.ClockInOut -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

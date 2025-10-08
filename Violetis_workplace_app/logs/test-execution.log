@@ -1,2 +1,2 @@
-2025-10-06 17:57:29 [TestNG-tests-1] INFO  com.violetis.Utilities.DriverFactory - Browser closed.
-2025-10-06 17:57:29 [TestNG-tests-1] INFO  com.violetis.Tests.HomePageTest - ===== Test teardown completed =====
+2025-10-08 22:13:43 [main] INFO  com.violetis.Utilities.DriverFactory - Browser closed.
+2025-10-08 22:13:43 [main] INFO  com.violetis.Tests.empdashboard.ClockInOut - ===== Test teardown completed =====

@@ -1,6 +1,7 @@
 package com.violetis.Utilities;
 import java.time.Duration;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class WaitUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
+ 
 
     // Wait for specific text to appear in element
     public static boolean waitForTextInElement(WebDriver driver, By locator, String text, int timeoutSeconds) {
@@ -38,5 +40,14 @@ public class WaitUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
         wait.until((ExpectedCondition<Boolean>) wd ->
             ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
+    }
+    public static void waitForTextNotEmpty(WebDriver driver, By locator, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+        wait.until(d -> !d.findElement(locator).getText().trim().isEmpty() 
+                       && !d.findElement(locator).getText().contains("N/A"));
+    }
+    public static Alert waitForAlert(WebDriver driver, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+        return wait.until(ExpectedConditions.alertIsPresent());
     }
 }
