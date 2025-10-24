@@ -1,9 +1,11 @@
 package com.violetis.Utilities;
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -50,4 +52,58 @@ public class WaitUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
         return wait.until(ExpectedConditions.alertIsPresent());
     }
+    public static List<WebElement> waitForElementsVisible(WebDriver driver, By locator, int timeoutSeconds) {
+        int attempts = 0;
+        List<WebElement> elements = null;
+
+        while (attempts < 3) { // Retry up to 3 times if stale
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+                elements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+                break; // success
+            } catch (StaleElementReferenceException e) {
+                attempts++; // retry
+            }
+        }
+
+        return elements;
+    }
+    public static void waitForDrawerToClose(WebDriver driver, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(
+            By.cssSelector(".ant-drawer-mask")
+        ));
+    }
+    public static int waitForStableNumber(WebDriver driver, By locator, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+
+        return wait.until(d -> {
+            try {
+                WebElement el = d.findElement(locator);
+                String prev = "";
+                long start = System.currentTimeMillis();
+
+                while (System.currentTimeMillis() - start < timeoutSeconds * 1000) {
+                    String text = el.getText().trim();
+
+                    if (!text.isEmpty() && text.matches("\\d+")) {
+                        if (text.equals(prev)) {
+                            // text stable for 500ms
+                            Thread.sleep(500);
+                            String check = el.getText().trim();
+                            if (check.equals(text)) {
+                                return Integer.parseInt(text);
+                            }
+                        }
+                        prev = text;
+                    }
+                    Thread.sleep(100); // poll interval
+                }
+            } catch (Exception e) {
+                // ignore StaleElementReferenceException
+            }
+            return null;
+        });
+    }
+    
 }

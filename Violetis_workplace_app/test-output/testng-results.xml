@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-08T22:12:58 IST" name="Default suite" finished-at="2025-10-08T22:13:43 IST" duration-ms="44590">
+  <suite started-at="2025-10-24T20:22:45 IST" name="Default suite" finished-at="2025-10-24T20:23:27 IST" duration-ms="42623">
     <groups>
     </groups>
-    <test started-at="2025-10-08T22:12:58 IST" name="Default test" finished-at="2025-10-08T22:13:43 IST" duration-ms="44590">
-      <class name="com.violetis.Tests.empdashboard.ClockInOut">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.violetis.Tests.empdashboard.ClockInOut@294e5088]" started-at="2025-10-08T22:12:58 IST" name="setUp" finished-at="2025-10-08T22:13:11 IST" duration-ms="12573" status="PASS">
+    <test started-at="2025-10-24T20:22:45 IST" name="Default test" finished-at="2025-10-24T20:23:27 IST" duration-ms="42623">
+      <class name="com.violetis.Tests.empdashboard.AddnewLeaveTest">
+        <test-method is-config="true" signature="setUpClass(java.lang.String)[pri:0, instance:com.violetis.Tests.empdashboard.AddnewLeaveTest@fcb4004]" started-at="2025-10-24T20:22:45 IST" name="setUpClass" finished-at="2025-10-24T20:22:56 IST" duration-ms="11663" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -17,20 +17,140 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="loginAndSetupDashboard()[pri:0, instance:com.violetis.Tests.empdashboard.ClockInOut@294e5088]" started-at="2025-10-08T22:13:11 IST" name="loginAndSetupDashboard" finished-at="2025-10-08T22:13:24 IST" duration-ms="12756" status="PASS">
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="loginAndSetupDashboard()[pri:0, instance:com.violetis.Tests.empdashboard.AddnewLeaveTest@fcb4004]" started-at="2025-10-24T20:22:56 IST" name="loginAndSetupDashboard" finished-at="2025-10-24T20:22:56 IST" duration-ms="51" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginAndSetupDashboard -->
-        <test-method signature="testTotalWorkedHours()[pri:6, instance:com.violetis.Tests.empdashboard.ClockInOut@294e5088]" started-at="2025-10-08T22:13:24 IST" name="testTotalWorkedHours" description="Validate total worked hours calculation" finished-at="2025-10-08T22:13:41 IST" duration-ms="17803" status="PASS">
+        <test-method signature="ApplyLeaveTest()[pri:1, instance:com.violetis.Tests.empdashboard.AddnewLeaveTest@fcb4004]" started-at="2025-10-24T20:22:56 IST" name="ApplyLeaveTest" finished-at="2025-10-24T20:23:09 IST" duration-ms="12351" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <td title="2025-09-30" class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end">...</td> is not clickable at point (882, 276). Other element would receive the click: <table class="ant-picker-content">...</table>
+  (Session info: chrome=141.0.7390.108)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [66adc62f5cf653cca2c348c063851b26, clickElement {id=f.9A81A28224FACAE0D2538C2A9340B4FA.d.8F9647015F568C9DAB611D8A1FF76D0D.e.59}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.108, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59610}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59610/devtoo..., se:cdpVersion: 141.0.7390.108, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (66adc62f5cf653cca2c348c063851b26)] -> xpath: //table[@class='ant-picker-content']/tbody[1]/tr/td]
+Session ID: 66adc62f5cf653cca2c348c063851b26]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <td title="2025-09-30" class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end">...</td> is not clickable at point (882, 276). Other element would receive the click: <table class="ant-picker-content">...</table>
+  (Session info: chrome=141.0.7390.108)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [66adc62f5cf653cca2c348c063851b26, clickElement {id=f.9A81A28224FACAE0D2538C2A9340B4FA.d.8F9647015F568C9DAB611D8A1FF76D0D.e.59}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.108, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59610}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59610/devtoo..., se:cdpVersion: 141.0.7390.108, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (66adc62f5cf653cca2c348c063851b26)] -> xpath: //table[@class='ant-picker-content']/tbody[1]/tr/td]
+Session ID: 66adc62f5cf653cca2c348c063851b26
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at com.violetis.Pages.employeedashboardpage.ApplyNewLeavePage.enterfromdateLeave(ApplyNewLeavePage.java:70)
+at com.violetis.Pages.employeedashboardpage.ApplyNewLeavePage.Applyforleave(ApplyNewLeavePage.java:138)
+at com.violetis.Tests.empdashboard.AddnewLeaveTest.ApplyLeaveTest(AddnewLeaveTest.java:28)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testTotalWorkedHours -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.violetis.Tests.empdashboard.ClockInOut@294e5088]" started-at="2025-10-08T22:13:41 IST" name="tearDown" finished-at="2025-10-08T22:13:43 IST" duration-ms="1306" status="PASS">
+        </test-method> <!-- ApplyLeaveTest -->
+        <test-method signature="validateLeavefromManager()[pri:2, instance:com.violetis.Tests.empdashboard.AddnewLeaveTest@fcb4004]" started-at="2025-10-24T20:23:09 IST" name="validateLeavefromManager" finished-at="2025-10-24T20:23:25 IST" duration-ms="16232" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //input[@id='form_item_email'] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.108, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59610}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59610/devtoo..., se:cdpVersion: 141.0.7390.108, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 66adc62f5cf653cca2c348c063851b26]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@id='form_item_email'] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.108, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59610}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59610/devtoo..., se:cdpVersion: 141.0.7390.108, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 66adc62f5cf653cca2c348c063851b26
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.violetis.Utilities.WaitUtils.waitForElementVisible(WaitUtils.java:18)
+at com.violetis.Pages.LoginPage.login(LoginPage.java:54)
+at com.violetis.Tests.empdashboard.AddnewLeaveTest.validateLeavefromManager(AddnewLeaveTest.java:38)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.violetis.Tests.empdashboard.ClockInOut -->
+        </test-method> <!-- validateLeavefromManager -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.violetis.Tests.empdashboard.AddnewLeaveTest@fcb4004]" started-at="2025-10-24T20:23:26 IST" name="tearDownClass" finished-at="2025-10-24T20:23:27 IST" duration-ms="1702" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.violetis.Tests.empdashboard.AddnewLeaveTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

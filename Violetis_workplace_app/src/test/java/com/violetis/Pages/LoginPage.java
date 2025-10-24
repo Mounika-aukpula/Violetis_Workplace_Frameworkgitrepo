@@ -51,7 +51,9 @@ public class LoginPage extends BasePage {
     // Perform login using custom credentials (for negative tests)
     public void login(String username, String password) {
         log.info("Performing login with custom credentials: {}", username);
+        WaitUtils.waitForElementVisible(driver, LoginPageLocators.emailorph, 15);
         type(LoginPageLocators.emailorph, username);
+        WaitUtils.waitForElementVisible(driver, LoginPageLocators.password, 15);
         type(LoginPageLocators.password, password);
         clickLoginBtn();
     }

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="Violetis Test Suite" parallel="false">
+<suite name="Violetis Test Suite" parallel="none">
 
-    <!-- ✅ Activate Listeners (Extent Reports, Screenshots) -->
-    <listeners>
-        <listener class-name="com.violetis.Utilities.ExtentTestListener"/>
-    </listeners>
+    
 
-    <test name="Violetis Tests">
+    <test name="Violetis workplace dashboard Tests">
         <classes>
-            <class name="com.violetis.Tests.HomePageTest"/>
-            <class name="com.violetis.Tests.SignUpTest"/>
+           <class name="com.violetis.Tests.empdashboard.ClockInOutTest"/>
+            <class name="com.violetis.Tests.empdashboard.DashboardCountsTest"/>
+            <class name="com.violetis.Tests.empdashboard.LeavedetailsValTest"/>
+            <class name="com.violetis.Tests.empdashboard.LeavedetailsValTest.AddnewLeaveTest"/>
         </classes>
     </test>
 

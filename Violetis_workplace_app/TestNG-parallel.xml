@@ -2,25 +2,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="AllTests" parallel="classes" thread-count="5">
 
-    <!-- Homepage tests -->
-    <test name="HomepageTests">
+    <!--  tests -->
+    <test name="Dashboard Page Tests">
         <classes>
-            <class name="com.violetis.Tests.HomePageTest"/>
+            <class name="com.violetis.Tests.empdashboard.ClockInOutTest"/>
         </classes>
     </test>
 
-    <!-- Signup tests -->
-    <test name="SignupTests">
+    <!--  tests -->
+    <test name="DashboardTests2">
         <classes>
-            <class name="com.violetis.Tests.SignupTest"/>
+            <class name="com.violetis.Tests.empdashboard.DashboardCountsTest"/>
         </classes>
     </test>
 
-    <!-- Login tests -->
-  <!--  <test name="LoginTests">
+    <!--  tests -->
+   <test name="DashboardTests3">
         <classes>
-            <class name="com.violetis.Tests.LoginTest"/>
+            <class name="com.violetis.Tests.empdashboard.LeavedetailsValTest"/>
         </classes> 
-        </test>-->
-
+        </test>
+   <test name="DashboardTests3">
+        <classes>
+   			<class name="com.violetis.Tests.empdashboard.LeavedetailsValTest.AddnewLeaveTest"/>
+		</classes> 
+        </test>
 </suite>
