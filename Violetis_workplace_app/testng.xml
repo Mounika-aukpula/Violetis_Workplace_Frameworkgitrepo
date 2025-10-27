@@ -9,8 +9,7 @@
         <classes>
            <class name="com.violetis.Tests.empdashboard.ClockInOutTest"/>
             <class name="com.violetis.Tests.empdashboard.DashboardCountsTest"/>
-            <class name="com.violetis.Tests.empdashboard.LeavedetailsValTest"/>
-            <class name="com.violetis.Tests.empdashboard.LeavedetailsValTest.AddnewLeaveTest"/>
+            <class name="com.violetis.Tests.empdashboard.AddnewLeaveTest"/>
         </classes>
     </test>
 

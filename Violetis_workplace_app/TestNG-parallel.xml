@@ -24,7 +24,7 @@
         </test>
    <test name="DashboardTests3">
         <classes>
-   			<class name="com.violetis.Tests.empdashboard.LeavedetailsValTest.AddnewLeaveTest"/>
+   			<class name="com.violetis.Tests.empdashboard.AddnewLeaveTest"/>
 		</classes> 
         </test>
 </suite>
