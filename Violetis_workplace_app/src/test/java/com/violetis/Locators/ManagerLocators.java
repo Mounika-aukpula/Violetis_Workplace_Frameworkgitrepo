@@ -21,7 +21,7 @@ public static final By alldates=By.xpath("//table[@class='ant-picker-content']/t
 public static final By submit_app_btn=By.xpath("//span[normalize-space()='Create']");
 //Warning 
 public static final By off_boarding=By.xpath("//span[contains(text(),'Offboardings')]");
-public static final By warnings_btn=By.xpath("//ul[@id='sub_menu_6_$$_offboardings-popup']");
+public static final By warnings_btn=By.xpath("//li[@class='ant-menu-item ant-menu-item-only-child']//span[@class='ant-menu-title-content']/span[contains(text(),'Warnings')]");
 public static final By ADD_NEW_WARN=By.xpath("//span[normalize-space()='Add New Warning']");
 public static final By Warn_title=By.xpath("//input[@id='form_item_title']");
 public static final By manager_logout=By.xpath("//div[@class='main-sidebar']//li[10]");

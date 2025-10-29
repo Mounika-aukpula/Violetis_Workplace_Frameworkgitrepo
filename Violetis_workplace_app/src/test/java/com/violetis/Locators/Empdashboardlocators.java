@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 public class Empdashboardlocators {
 	public static final By Dashboard_btn=By.xpath("//div[@class='main-sidebar']//li[1]");
 	public static final By self_btn=By.xpath("//span[normalize-space()='Self']");
-	public static final By Clock_IN = By.xpath("//div[@class='ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-8 ant-col-xl-8 css-3dpotf']//div[@class='ant-space css-3dpotf ant-space-horizontal ant-space-align-center']//div[1]//button[1]");
+	public static final By Clock_IN = By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[2]/div[1]/div/div/div/div[4]/div/div/div[1]");
 	public static final By Clock_OUT=By.xpath("//span[normalize-space()='Clock Out']");
 	public static final By Pre_Clockout_toastmsg=By.xpath("//span[normalize-space()='You have not clocked in']");
 	public static final By empappr=By.xpath("//body//div[@id='app']//div[@class='ant-row mb-20 css-tv86ws']//div[@class='ant-row mb-20 css-tv86ws']//div[1]//div[1]//div[1]//figure[1]//div[1]//div[2]//figcaption[1]//h2[1]");
@@ -16,7 +16,7 @@ public class Empdashboardlocators {
 	public static final By confirm_cancel_clockoutbtn=By.xpath("//div[@class='ant-modal-confirm-btns']//span[contains(text(),'Cancel')]");
 	public static final By error_msg=By.xpath("");
 	public static final By CURRENT_DATE_TIME=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[2]/div[1]/div/div/div/div[1]/p");
-	public static final By Clock_Out_Time=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[2]/div[1]/div/div/div/div[4]/div/div/div/button/span");
+	public static final By Clock_Out_Time = By.xpath("//*[@id='components-layout-demo-responsive']/section/section/div/div/main/div[2]/div/div[2]/div[1]/div/div/div/div[4]/div/div/div/button/span");
 	public static final By emp_appreciaationcount=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[2]/div[2]/div/div[1]/div/div/figure/div/div[2]/figcaption/h2");
 	public static final By emp_warningcount=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[2]/div[2]/div/div[2]/div/div/figure/div/div[2]/figcaption/h2");
 	public static final By emp_expensecount=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[2]/div[2]/div/div[3]/div/div/figure/div/div[2]/figcaption/h2");
@@ -43,7 +43,7 @@ public class Empdashboardlocators {
 	public static final By Month_forwardbtn=By.xpath("//div[@class='ant-picker-panel-container']//div[2]//div[1]//div[1]//button[3]//span[1]");
 	public static final By Startleave_yearele=By.xpath("/html/body/div[6]/div/div/div/div[2]/div/div/div/div[1]/div/div[1]/div/button[2]");
 	public static final By endLeave_yearele=By.xpath("/html/body/div[6]/div/div/div/div[2]/div/div/div/div[2]/div/div[1]/div/button[2]");
-	public static final By alldates_indatepicker=By.xpath("//table[@class='ant-picker-content']/tbody[1]/tr/td");
+	public static final By alldates_indatepicker=By.xpath("//table[@class='ant-picker-content']//tbody[1]/tr/td");
 	public static final By half_leave_drp_dwnbtn=By.xpath("//input[@id='form_item_half_leave']");
 	public static final By Create_btn=By.xpath("//span[normalize-space()='Create']");
 	public static final By Datepickerbox = By.xpath("//input[@id='form_item_date'] | //input[@id='form_item_warning_date'] | //input[@id='form_item_date_time']");
@@ -72,7 +72,7 @@ public class Empdashboardlocators {
 	public static final By yearfrwdbtn=By.xpath("//button[@class='ant-picker-header-super-next-btn']");
 	public static final By yearbackwardbtn=By.xpath("//button[@class='ant-picker-header-super-prev-btn']");
 	public static final By yearele=By.xpath("//table[@class='ant-picker-content']//tbody//tr//td/div");
-	public static final By noincdectextele=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[4]/div/div[2]/div[1]/div[3]/span");
+	public static final By noincdectextele=By.xpath("//div[@class='ant-result-extra']/span[contains(text(),'No active increments or promotions at this time')]");
 	public static final By promodateele=By.xpath("//div[@class='ant-timeline-item-content']/span[1]");
 	public static final By promotiontype=By.xpath("//div[@class='ant-timeline-item-content']/span[2]");
 	public static final By promotedempname=By.xpath("//div[@class='ant-timeline-item-content']/div/div/div[1]");
@@ -80,6 +80,43 @@ public class Empdashboardlocators {
 	public static final By promoteddesignationele=By.xpath("//div[@class='ant-timeline-item-content']/div/div/div[2]/span[3]");
 	public static final By incsalseenbtn=By.xpath("//button[@class=\"css-gaz7ss ant-btn ant-btn-link ant-btn-icon-only\"]");
 	public static final By promotionscount=By.xpath("//div[@class='ps']/ul//li");
+	//Birthday module locators
+	public static final By bdaydatepicker=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[3]/div/div[1]/div/div[2]/div/div[1]/span/div/div[1]/input");
+	public static final By selectuserdrpdwnbtn=By.xpath("//input[@id='rc_select_0']");
+	public static final By bdmonthele=By.xpath("/html/body/div[4]/div/div/div/div/div/div[1]/div[1]/div/button[1]");
+	public static final By bdyearele=By.xpath("/html/body/div[4]/div/div/div/div/div/div[1]/div[1]/div/button[2]");
+	public static final By bdayyear_frwd_btn=By.xpath("/html/body/div[4]/div/div/div/div/div/div[1]/div[1]/button[4]");
+	public static final By bdyearprevbtn=By.xpath("/html/body/div[4]/div/div/div/div/div/div[1]/div[1]/button[1]");
+	public static final By bdaydatelems=By.xpath("//table[@class='ant-picker-content']/tbody/tr/td/div");
+	public static final By bdayrows=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[3]/div/div[2]/div/div/div[3]/div/div/ul/li");
+	public static final By bdaymonthforwardbtn=By.xpath("/html/body/div[4]/div/div/div/div/div/div[1]/div[1]/button[3]/span");
+	public static final By bdaymonthprevbtn=By.xpath("/html/body/div[4]/div/div/div/div/div/div[1]/div[1]/button[2]/span");
+	public static final By bdayusernameeles=By.xpath("//div[@class='ant-spin-container']/ul/li/div/div[2]/h4/div/div[1]");
+	public static final By bdayuserdateles=By.xpath("//div[@class='ant-spin-container']/ul/li/div/div[2]/h4/div/div[2]");
+	public static final By nobdaymsgele=By.xpath("//span[contains(text(),'There is no birthdays')]");
+	//Work Anniversary locators
+	public static final By workanniversarydatepicker=By.xpath("//*[@id=\'components-layout-demo-responsive\']/section/section/div/div/main/div[2]/div/div[5]/div[4]/div/div[1]/div/div[2]/div/div[1]");
+	public static final By wokannseluserdrpdwn=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[4]/div/div[1]/div/div[2]/div/div[2]/span/div");
+	public static final By noworkannele=By.xpath("//span[contains(text(),'There is no upcoming work anniversary')]");
+	public static final By workannmonth_ele=By.xpath("/html/body/div[5]/div/div/div/div/div/div[1]/div[1]/div/button[1]");
+	public static final By workannyearele=By.xpath("/html/body/div[5]/div/div/div/div/div/div[1]/div[1]/div/button[2]");
+	public static final By workannmonthfrwdbtn=By.xpath("/html/body/div[5]/div/div/div/div/div/div[1]/div[1]/button[3]/span");
+	public static final By wokann_month_prev=By.xpath("/html/body/div[4]/div/div/div/div/div/div[1]/div[1]/button[2]");
+	public static final By badege_eles=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[4]/div/div[2]/div/div/div[3]/div/div/ul/li/div/div[2]/h4/div/div[2]");
+	public static final By upcoming_ann_users=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[4]/div/div[2]/div/div/div[3]/div/div/ul/li");
+	public static final By upcoming_ann_username=By.xpath("//div[@class='notification-left']/strong");
+	public static final By upcoming_ann_dates=By.xpath("//div[@class='notification-left']/div");
+	//weekend holiday module
+	public static final By hlddatepicker=By.xpath("//input[starts-with(@title, '20')]");
+	public static final By hldbtn=By.xpath("//label[@class='ant-segmented-item ant-segmented-item-selected']");
+	public static final By weekendbtn=By.xpath("//label[@class='ant-segmented-item']");
+	public static final By hldrows=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[5]/div/div[2]/div[2]/div/div[3]/div/div/ul/li");
+	public static final By weekendrows=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[5]/div/div[2]/div[2]/div/div[3]/div/div/ul/li");
+	public static final By nohldmsgele=By.xpath("//span[contains(text(),'There are no holidays')]");
 	
+			
+	
+	
+
 }
 

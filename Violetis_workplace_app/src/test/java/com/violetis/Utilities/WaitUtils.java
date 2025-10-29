@@ -105,5 +105,9 @@ public class WaitUtils {
             return null;
         });
     }
+    public static List<WebElement> waitForElementsPresence(WebDriver driver, By locator, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
     
 }

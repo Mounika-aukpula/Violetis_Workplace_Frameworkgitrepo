@@ -1,6 +1,7 @@
 package com.violetis.Pages.employeedashboardpage;
 import java.time.Duration;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -216,8 +217,13 @@ public int getlateattendencecount() {
     return Integer.parseInt(countText);
 }
 //*****increamnet/promotion module
-public void validateincorprommodulewithnoprom() {
-	
+public String getincorprommodulewithnoprom() {
+	WebElement TextElement = WaitUtils.waitForElementVisible(driver, Empdashboardlocators.noincdectextele,10);
+	String nopromtext=TextElement.getText();
+	return nopromtext;
+   
 }
+
+
 }
 

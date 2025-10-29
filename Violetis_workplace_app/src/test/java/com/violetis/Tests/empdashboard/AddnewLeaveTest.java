@@ -25,7 +25,7 @@ public class AddnewLeaveTest extends BaseTest {
 @Test(priority=1)
 	public void ApplyLeaveTest() throws InterruptedException {
 	 loginPage.login();
-	 leave.Applyforleave("Holidays India","Oct","2025","30","Oct","2025","31","Personal work");
+	 leave.Applyforleave("Holidays India","Nov","2025","10","Nov","2025","10","Personal work");
 	 Thread.sleep(2000);
 	 dashboardPage.logout();
 	 //driver.navigate().refresh();
