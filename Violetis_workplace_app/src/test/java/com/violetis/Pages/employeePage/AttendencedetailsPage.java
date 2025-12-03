@@ -3,8 +3,13 @@ package com.violetis.Pages.employeePage;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.TextStyle;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +21,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import com.violetis.Base.BasePage;
+import com.violetis.Locators.EmpPageLocators.AttendenceDetailsLocators;
 import com.violetis.Locators.EmpPageLocators.EmpAttendencePageLocators;
+import com.violetis.Locators.EmpPageLocators.EmpHolidayLocators;
 import com.violetis.Utilities.JavaScriptUtility;
 import com.violetis.Utilities.WaitUtils;
 
@@ -277,6 +284,217 @@ public class AttendencedetailsPage extends BasePage {
 	}
 	    return totalabsentAttendance;
 }
+// Attendence details page validation methods**********************************
+	public String getPresentDays() {
+		return WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.presentworkingdaysele, 30).getText().trim();
+		}
+	public String getdispalyedTotalOfficeTime() {
+        return WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.totalofficetimele, 30).getText().trim();
+    }
+
+    public String getDisplayedTotalWorkedTime() {
+        return WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.Totworkedtimeele, 30).getText().trim();
+    }
+
+    public String getLateValue() {
+        return WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.lateattendencecountele, 30).getText().trim();
+    }
+
+    public String getHalfDays() {
+        return WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.halfdayele, 30).getText().trim();
+    }
+    /** ✅ Get all "Clocked Time" values for Present days and return total in minutes */
+    public int getTotalClockedMinutesFromTable() {
+        List<WebElement> allRows = WaitUtils.waitForElementsPresence(driver, AttendenceDetailsLocators.attendencerows, 30);
+        int totalMinutes = 0;
+
+        for (WebElement row : allRows) {
+            String status =WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.allrowsstatuseles, 30).getText().trim();
+            if (status.equalsIgnoreCase("Present")) {
+                String clockedTime = WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.allrowsclockedtimes, 30).getText().trim(); // e.g., "8 hrs 25 mins" or "1 hrs 19 mins"
+                totalMinutes += convertToMinutes(clockedTime);
+            }
+        }
+        return totalMinutes;
+    }
+    /** Convert "X hrs Y mins" → total minutes */
+    private int convertToMinutes(String timeText) {
+        int hours = 0, minutes = 0;
+        if (timeText.contains("hrs")) {
+            hours = Integer.parseInt(timeText.split("hrs")[0].trim());
+        }
+        if (timeText.contains("mins")) {
+            String minPart = timeText.substring(timeText.indexOf("hrs") + 3).replace("mins", "").trim();
+            try {
+                minutes = Integer.parseInt(minPart);
+            } catch (Exception ignored) {}
+        }
+        return (hours * 60) + minutes;
+    }
+
+    /** Convert minutes to "X hrs Y mins" */
+    public String convertToHrMinFormat(int totalMinutes) {
+        int hours = totalMinutes / 60;
+        int minutes = totalMinutes % 60;
+        return hours + " hrs " + minutes + " mins";
+    }
+    public int getWorkingDays() {
+    	String presentDaysText=getPresentDays(); // e.g. "9/13"
+        return Integer.parseInt(presentDaysText.split("/")[0].trim());
+    }
+    public String calculateExpectedOfficeTime() {
+        int workingDays = getWorkingDays();
+        double totalHours = workingDays * 8.5; // 8.5 hours per day
+
+        int hrs = (int) totalHours;
+        int mins = (int) Math.round((totalHours - hrs) * 60);
+
+        return String.format("%d hrs %d mins", hrs, mins);
+    }
+    //validate present/workingdays ele
+ // Get the text like "9 / 13 Days"
+    public String getPresentDaysText() {
+    	String presentDaysText=WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.presentworkingdaysele, 30).getText().trim();
+        return presentDaysText;
+    }
+
+    // Extract present and working days from the text
+    public int getPresentDaysFromCard() {
+        String text = getPresentDaysText(); // e.g., "9 / 13 Days"
+        return Integer.parseInt(text.split("/")[0].trim());
+    }
+
+    public int getWorkingDaysFromCard() {
+        String text = getPresentDaysText();
+        return Integer.parseInt(text.split("/")[1].replaceAll("[^0-9]", "").trim());
+    }
+
+    public int getPresentDayscountFromTable() {
+        int count = 0;
+        List<WebElement> statusesRows=WaitUtils.waitForElementsPresence(driver, AttendenceDetailsLocators.allrowsstatuseles, 30);
+        for (WebElement statusCell :statusesRows) {
+            String status = statusCell.getText().trim().toLowerCase();
+            if (status.equalsIgnoreCase("present")) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int getRowCount() {
+    	 List<WebElement> tableRows= WaitUtils.waitForElementsPresence(driver, AttendenceDetailsLocators.attendencerows, 30);
+        return tableRows.size();
+    }
+    //validate late attendence
+    public String getLateValuefromattendencedetails() {
+    	WebElement lateattval=WaitUtils.waitForElementPresence(driver, AttendenceDetailsLocators.lateattendencecountele, 30);
+        return lateattval.getText().trim();
+    }
+    public int getLateCountFromTable() {
+        try {
+        	List<WebElement> lateattendencetableRows= WaitUtils.waitForElementsPresence(driver, AttendenceDetailsLocators.lateattendencerowsele, 30);
+            int count = 0;
+            
+            for (WebElement lateattcell : lateattendencetableRows) {
+                String text = lateattcell.getText().trim();
+                if (!text.isEmpty() && text.equalsIgnoreCase("Late")) {
+                    count++;
+                }
+            }
+            return count;
+        } catch (Exception e) {
+            System.out.println("⚠️ No 'Late' entries found: " + e.getMessage());
+            return 0;
+        }
+    }
+    // ✅ Get Late Attendance rows safely
+    public int getLateAttendanceRows() {
+        List<WebElement> lateRows;
+        try {
+        	lateRows = WaitUtils.waitForElementsPresence(driver, AttendenceDetailsLocators.lateattendencerowsele, 10);
+            System.out.println("🔹 Found " + lateRows.size() + " Late Attendance rows.");
+        } catch (Exception  e) {
+            lateRows = new ArrayList<>();
+            System.out.println("ℹ️ No 'Late Attendance' rows found in table.");
+        }
+        return lateRows.size();
+    }
+    //validating emp attendence details table using cross module validation from manager
+    public List<Map<String, String>> getEmployeeAttendanceTableData() {
+        List<Map<String, String>> attendanceData = new ArrayList<>();
+        List<WebElement> rows = driver.findElements(AttendenceDetailsLocators.attendencerows);
+
+        for (int i = 0; i < rows.size(); i++) {
+            WebElement row = rows.get(i);
+            Map<String, String> rowData = new LinkedHashMap<>();
+
+            try {
+                // Extract text for each column safely
+                String date = getTextSafe(row, AttendenceDetailsLocators.DATE_COL);
+                String status = getTextSafe(row, AttendenceDetailsLocators.STATUS_COL);
+                String clockIn = getTextSafe(row, AttendenceDetailsLocators.CLOCKIN_COL);
+                String clockOut = getTextSafe(row, AttendenceDetailsLocators.CLOCKOUT_COL);
+                String clockedTime = getTextSafe(row, AttendenceDetailsLocators.CLOCKEDTIME_COL);
+                //String otherDetails = getTextSafe(row, AttendenceDetailsLocators.OTHERDETAILS_COL);
+
+                rowData.put("Date", date);
+                rowData.put("Status", status);
+                rowData.put("ClockIn", clockIn);
+                rowData.put("ClockOut", clockOut);
+                rowData.put("ClockedTime", clockedTime);
+                //rowData.put("OtherDetails", otherDetails);
+
+                attendanceData.add(rowData);
+
+            } catch (Exception e) {
+                System.out.println("⚠️ Error reading row " + (i + 1) + ": " + e.getMessage());
+            }
+        }
+
+        System.out.println("✅ Total rows fetched: " + attendanceData.size());
+        return attendanceData;
+    }
+
+    private String getTextSafe(WebElement parent, By locator) {
+        try {
+            WebElement element = parent.findElement(locator);
+            String text = element.getText().trim();
+            return text.isEmpty() ? "--" : text;
+        } catch (NoSuchElementException e) {
+            return "--";
+        }
+    }
+   
+    //Attendence summery page validation from Attendence details page
+    /** Extract only date number (e.g. "14" from "14 Nov 2025") */
+    private String extractDay(String fullDate) {
+        return fullDate.substring(0, 2).trim();
+    }
+    /** Get only date number from first column */
+    private String getDayNumberFromRow(WebElement row) {
+        String fullDate = row.findElement(By.xpath(".//td[1]")).getText().trim();
+        return extractDay(fullDate);  
+    }
+    /** Get status from second column: td[2]/span */
+    private String getStatusFromRow(WebElement row) {
+        WebElement statusSpan = row.findElement(By.xpath("./td[2]//span"));
+        return statusSpan.getText().trim();
+    }
+    /** Map: dayNumber → status */
+    public Map<String, String> getAllDateStatusMap() {
+        Map<String, String> map = new LinkedHashMap<>();
+
+        List<WebElement> allRows = driver.findElements(By.xpath("//tbody//tr"));
+
+        for (WebElement row : allRows) {
+            String day = getDayNumberFromRow(row);  // "14"
+            String status = getStatusFromRow(row);  // "Present"
+
+            map.put(day, status);
+        }
+
+        return map;
+    }
+   
 }
 
 		

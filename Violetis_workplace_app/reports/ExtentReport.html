@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Test Execution Results</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Oct 24, 2025 08:22:44 pm</span></a>
+<a href="#"><span class="badge badge-primary">Dec 3, 2025 03:47:01 pm</span></a>
 </li>
 </ul>
 </div>
@@ -84,9 +84,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">ApplyLeaveTest</p>
+            <p class="name">verifyAllTabContainsAllRecords</p>
             <p class="text-sm">
-              <span>8:22:56 pm</span> / <span>00:00:12:617</span>
+              <span>3:47:25 pm</span> / <span>00:00:01:662</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -94,10 +94,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">ApplyLeaveTest</h5>
-<span class='badge badge-success'>10.24.2025 8:22:56 pm</span>
-<span class='badge badge-danger'>10.24.2025 8:23:09 pm</span>
-<span class='badge badge-default'>00:00:12:617</span>
+<h5 class="test-status text-fail">verifyAllTabContainsAllRecords</h5>
+<span class='badge badge-success'>12.03.2025 3:47:25 pm</span>
+<span class='badge badge-danger'>12.03.2025 3:47:27 pm</span>
+<span class='badge badge-default'>00:00:01:662</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -107,7 +107,7 @@
 </div>    <div class="row mb-3"><div class="col-md-3">
     
 
-<img data-featherlight='C:\VIOLETIS\Violetis_Workplace_application\Violetis_workplace_app/screenshots/ApplyLeaveTest_20251024_202309.png' src="C:\VIOLETIS\Violetis_Workplace_application\Violetis_workplace_app/screenshots/ApplyLeaveTest_20251024_202309.png">
+<img data-featherlight='C:\VIOLETIS\Violetis_Workplace_application\Violetis_workplace_app/screenshots/verifyAllTabContainsAllRecords_20251203_154727.png' src="C:\VIOLETIS\Violetis_Workplace_application\Violetis_workplace_app/screenshots/verifyAllTabContainsAllRecords_20251203_154727.png">
   
     
 
@@ -118,24 +118,25 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>8:23:09 pm</td>
+        <td>3:47:27 pm</td>
         <td>
-          ❌ Test Failed: ApplyLeaveTest
+          ❌ Test Failed: verifyAllTabContainsAllRecords
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>8:23:09 pm</td>
+        <td>3:47:27 pm</td>
         <td>
-          <textarea readonly class="code-block">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <td title="2025-09-30" class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end">...</td> is not clickable at point (882, 276). Other element would receive the click: <table class="ant-picker-content">...</table>
-  (Session info: chrome=141.0.7390.108)
+          <textarea readonly class="code-block">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=142.0.7444.176)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: '4.35.0', revision: '1c58e5028b'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [66adc62f5cf653cca2c348c063851b26, clickElement {id=f.9A81A28224FACAE0D2538C2A9340B4FA.d.8F9647015F568C9DAB611D8A1FF76D0D.e.59}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.108, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59610}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59610/devtoo..., se:cdpVersion: 141.0.7390.108, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (66adc62f5cf653cca2c348c063851b26)] -> xpath: //table[@class='ant-picker-content']/tbody[1]/tr/td]
-Session ID: 66adc62f5cf653cca2c348c063851b26
+Command: [ff5801a6e87c7364265f276ca40f72be, getElementText {id=f.A4F556B186BC139CE33C108D390A4E0B.d.9BA78F8230C753751E2E1C7917AFCB97.e.88}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50756}, goog:processID: 8884, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50756/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (ff5801a6e87c7364265f276ca40f72be)] -> xpath: //tr[@class='ant-table-row ant-table-row-level-0']]
+Session ID: ff5801a6e87c7364265f276ca40f72be
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
@@ -147,104 +148,10 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.violetis.Pages.employeedashboardpage.ApplyNewLeavePage.enterfromdateLeave(ApplyNewLeavePage.java:70)
-	at com.violetis.Pages.employeedashboardpage.ApplyNewLeavePage.Applyforleave(ApplyNewLeavePage.java:138)
-	at com.violetis.Tests.empdashboard.AddnewLeaveTest.ApplyLeaveTest(AddnewLeaveTest.java:28)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</textarea>
-          
-        </td>
-      </tr>
-  </tbody>
-</table>
-</div>
-          </div>
-        </li>
-        <li class="test-item"  status="fail" test-id="2"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">validateLeavefromManager</p>
-            <p class="text-sm">
-              <span>8:23:09 pm</span> / <span>00:00:16:433</span>
-              <span class="badge fail-bg log float-right">Fail</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-fail">validateLeavefromManager</h5>
-<span class='badge badge-success'>10.24.2025 8:23:09 pm</span>
-<span class='badge badge-danger'>10.24.2025 8:23:26 pm</span>
-<span class='badge badge-default'>00:00:16:433</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
-<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
-<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
-<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
-</div>
-</div>
-</div>    <div class="row mb-3"><div class="col-md-3">
-    
-
-<img data-featherlight='C:\VIOLETIS\Violetis_Workplace_application\Violetis_workplace_app/screenshots/validateLeavefromManager_20251024_202325.png' src="C:\VIOLETIS\Violetis_Workplace_application\Violetis_workplace_app/screenshots/validateLeavefromManager_20251024_202325.png">
-  
-    
-
-    </div></div>
-<div class="detail-body mt-4">
-<table class="table table-sm">
-  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
-  <tbody>
-      <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>8:23:26 pm</td>
-        <td>
-          ❌ Test Failed: validateLeavefromManager
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>8:23:26 pm</td>
-        <td>
-          <textarea readonly class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@id='form_item_email'] (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: '4.35.0', revision: '1c58e5028b'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.108, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\Dell\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59610}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59610/devtoo..., se:cdpVersion: 141.0.7390.108, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 66adc62f5cf653cca2c348c063851b26
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.violetis.Utilities.WaitUtils.waitForElementVisible(WaitUtils.java:18)
-	at com.violetis.Pages.LoginPage.login(LoginPage.java:54)
-	at com.violetis.Tests.empdashboard.AddnewLeaveTest.validateLeavefromManager(AddnewLeaveTest.java:38)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
+	at com.violetis.Pages.employeePage.EMPPromotionordemotionPage.getRowDataFromCurrentTab(EMPPromotionordemotionPage.java:135)
+	at com.violetis.Pages.employeePage.EMPPromotionordemotionPage.getIncrementRows(EMPPromotionordemotionPage.java:181)
+	at com.violetis.Tests.EmployeePageTests.EMPPromotionordemotionTest.verifyAllTabContainsAllRecords(EMPPromotionordemotionTest.java:71)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -293,7 +200,7 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
@@ -302,12 +209,12 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">org.openqa.selenium.TimeoutException</p>
+<p class="name">org.openqa.selenium.StaleElementReferenceException</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>org.openqa.selenium.TimeoutException</h4>
+<h4>org.openqa.selenium.StaleElementReferenceException</h4>
 <span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -321,42 +228,9 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>20:23:09 pm</td>
+<td>15:47:25 pm</td>
 <td>
-<a href="#" class="linked" test-id='2' id='2'>validateLeavefromManager</a>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log badge-danger'>1</span>
-</span>
-<p class="name">org.openqa.selenium.ElementClickInterceptedException</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>org.openqa.selenium.ElementClickInterceptedException</h4>
-<span status="fail" class='badge log badge-danger'>1 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>20:22:56 pm</td>
-<td>
-<a href="#" class="linked" test-id='1' id='1'>ApplyLeaveTest</a>
+<a href="#" class="linked" test-id='1' id='1'>verifyAllTabContainsAllRecords</a>
 </td>
 </tr>
 </tbody>
@@ -376,13 +250,13 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Oct 24, 2025 08:22:44 pm</h3>
+<h3>Dec 3, 2025 03:47:01 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Oct 24, 2025 08:23:27 pm</h3>
+<h3>Dec 3, 2025 03:47:29 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -394,7 +268,7 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>2</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -415,7 +289,7 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>2</b> tests failed,
+<small data-tooltip='100%'><b>1</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -435,7 +309,7 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 <div class="card-footer">
 <div><small data-tooltip='0%'><b>0</b> events passed</small></div>
 <div>
-<small data-tooltip='100%'><b>4</b> events failed,
+<small data-tooltip='100%'><b>2</b> events failed,
 <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -452,7 +326,7 @@ Session ID: 66adc62f5cf653cca2c348c063851b26
 </div></div>
 <script>
 var timeline = {
-"ApplyLeaveTest":12.617,"validateLeavefromManager":16.433
+"verifyAllTabContainsAllRecords":1.662
 };
 </script>
 <div class="row">
@@ -484,7 +358,7 @@ var timeline = {
 var statusGroup = {
 parentCount: 5,
 passParent: 0,
-failParent: 2,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -501,7 +375,7 @@ skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 passEvents: 0,
-failEvents: 4,
+failEvents: 2,
 warningEvents: 0,
 skipEvents: 0,
 infoEvents: 0

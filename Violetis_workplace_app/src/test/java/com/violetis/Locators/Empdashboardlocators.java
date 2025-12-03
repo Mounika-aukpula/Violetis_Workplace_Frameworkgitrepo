@@ -113,10 +113,28 @@ public class Empdashboardlocators {
 	public static final By hldrows=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[5]/div/div[2]/div[2]/div/div[3]/div/div/ul/li");
 	public static final By weekendrows=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[5]/div/div[2]/div[2]/div/div[3]/div/div/ul/li");
 	public static final By nohldmsgele=By.xpath("//span[contains(text(),'There are no holidays')]");
+	public static final By yearrangeeleinpicker=By.xpath("//button[@class='ant-picker-decade-btn']");			
+	public static final By allyearelesinpicker=By.xpath("//table[@class='ant-picker-content']//tbody//td");
+	public static final By nextbutninpicker=By.xpath("/html/body/div[4]/div/div/div/div/div/div/div[1]/button[2]");
+	public static final By prevbtninpicker=By.xpath("/html/body/div[4]/div/div/div/div/div/div/div[1]/button[1]");
+	public static final By holidaynames=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[5]/div/div[2]/div[2]/div/div[3]/div/div/ul/li/div/div/h4/div/div/strong");
+	public static final By holidaydates=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[5]/div/div[2]/div[2]/div/div[3]/div/div/ul/li/div/div/h4/div/div[2]");
+	public static final By weekenddateseles=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[5]/div[5]/div/div[2]/div[2]/div/div[3]/div/div/ul/li/div/div/h4/div/div[2]");
+	//next holiday locators
+	public static final By upcominghldyele=By.xpath("//div[contains(text(),'Weekend, 01 Nov 2025')]");
+	public static final By viewallbtn=By.xpath("//a[@href='/admin/self/holidays']//button[@type='button']//span[contains(text(),'View All')]");
+	public static final By holidaypgheader=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[1]/div/div/div/div[1]/div/div/div/span");
+	public static final By monthdropdpwnbtn=By.xpath("//input[@id='rc_select_22']");
+	public static final By allnexthldbtn=By.xpath("//li[@title='Next Page']//button[@type='button']");
+	public static final By allhldydateeles=By.xpath("//tbody[@class='ant-table-tbody']//tr/td[2]");
+	//policies module
+	public static final By latestpolicyname=By.xpath("//div[@class='policy-updated']");
+	public static final By poliviewallbutton=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[2]/div/div[6]/div[2]/div[1]/div/div/div/div/a/button/span");
+	//next birthday module
+	public static final By nextbirthdayele=By.xpath("//div[@class='member-name']");
+	public static final By nextarrowbtn=By.xpath("//div[@class='custom-slick-arrow slick-arrow slick-next']");
+	public static final By prevarrowbtn=By.xpath("//div[@class='custom-slick-arrow slick-arrow slick-prev']");
+	public static final By birthdaydates=By.xpath("//div[@class='member-role']");
 	
-			
-	
-	
-
 }
 

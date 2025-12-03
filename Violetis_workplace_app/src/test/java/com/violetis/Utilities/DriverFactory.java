@@ -29,12 +29,19 @@ public class DriverFactory {
             switch (browser.toLowerCase()) {
                 case "chrome":
                     ChromeOptions chromeOptions = new ChromeOptions();
+                 // ✅ Remove “Chrome is being controlled by automated test software” banner
+                    chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+                    chromeOptions.setExperimentalOption("useAutomationExtension", false);
+                    chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+                    //disable password save notifications
                     Map<String, Object> prefs = new HashMap<>();
-                    prefs.put("profile.credentials_enable_service", false);
+                    prefs.put("credentials_enable_service", false);          // Disable sign-in prompt
+                    prefs.put("profile.password_manager_enabled", false);    // Disable password manager
                     chromeOptions.setExperimentalOption("prefs", prefs);
+
                     WebDriverManager.chromedriver().setup();
                     driver.set(new ChromeDriver(chromeOptions));
-                    log.info("✅ ChromeDriver launched successfully.");
+                    log.info("✅ ChromeDriver launched successfully with password prompts disabled.");
                     break;
 
                 case "firefox":

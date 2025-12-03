@@ -109,5 +109,14 @@ public class WaitUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
+
+	public static WebElement waitForElementClickablewebelement(WebDriver driver, WebElement element, int timeoutSeconds) {
+		// TODO Auto-generated method stub
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+	    return wait.until(ExpectedConditions.elementToBeClickable(element));
+		
+	}
+
+	
     
 }

@@ -94,7 +94,7 @@ public class DashboardCountsTest extends BaseTest {
 		System.out.println(beforecount);
 		expencepage.clickonexpensesbtn();
 		expencepage.clickonAddnewExpense();
-		expencepage.enterexpensedetails("test","20","Oct","2025","14");
+		expencepage.enterexpensedetails("test","20","Oct","2025","14","Ref1234","sample");
 		dashboardPage.clickondashboardbtn();
 		Thread.sleep(2000);
 		int AfterCount=dashboardPage.getExpensesCount();

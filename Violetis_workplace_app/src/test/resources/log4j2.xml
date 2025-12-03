@@ -1,46 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
-        <!-- Console Appender -->
+
+        <!-- 🎯 Console Appender -->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <!-- Rolling File Appender -->
+        <!-- 📜 Rolling File Appender -->
         <RollingFile name="FileAppender"
                      fileName="logs/test-execution.log"
                      filePattern="logs/test-execution-%d{yyyy-MM-dd-HH-mm-ss}.log.gz">
+
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+
             <Policies>
-                <TimeBasedTriggeringPolicy />
+                <!-- Rotate daily -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- Or when file exceeds 10MB -->
                 <SizeBasedTriggeringPolicy size="10MB"/>
             </Policies>
+
+            <!-- Keep only last 10 log files -->
+            <DefaultRolloverStrategy max="10"/>
         </RollingFile>
+
     </Appenders>
 
     <Loggers>
-        <!-- Root logger for general logs -->
+        <!-- 🧱 Root Logger -->
         <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="FileAppender"/>
         </Root>
 
-        <!-- Logger for page objects -->
+        <!-- 📄 Page Object Logs -->
         <Logger name="pages" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
 
-        <!-- Logger for test classes -->
+        <!-- 🧪 Test Logs -->
         <Logger name="tests" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
 
-        <!-- Logger for utilities/helpers -->
+        <!-- ⚙️ Utility Logs -->
         <Logger name="utils" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
+        <!-- Suppress noisy external library logs -->
+		<Logger name="org.testng" level="error" additivity="false">
+    		<AppenderRef ref="Console"/>
+		</Logger>
+
+		<Logger name="io.github.bonigarcia.wdm" level="warn" additivity="false">
+    		<AppenderRef ref="Console"/>
+		</Logger>
+
+		<Logger name="org.openqa.selenium" level="warn" additivity="false">
+    		<AppenderRef ref="Console"/>
+		</Logger>
     </Loggers>
 </Configuration>

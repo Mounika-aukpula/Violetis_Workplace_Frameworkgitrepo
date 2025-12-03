@@ -16,6 +16,7 @@ public static final By yearfrwdbtn=By.xpath("//button[@class='ant-picker-header-
 public static final By yearbackwardbtn=By.xpath("//button[@class='ant-picker-header-super-prev-btn']");
 public static final By yearele=By.xpath("//table[@class='ant-picker-content']//tbody//tr//td/div");
 public static final By lateloginele=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/section/div/div/main/div[3]/div[1]/div/div[4]/div/div/div/div[2]/span");
+
 //attendence summary locators
 
 public static final By presentcheckele=By.xpath("//span[@class='anticon anticon-check' and @tabindex='-1']");

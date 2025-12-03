@@ -16,6 +16,7 @@ import com.violetis.Utilities.WaitUtils;
 public class HRPage extends BasePage {
 	public JavaScriptUtility jsUtil;
 	String expincreamnetorpromotiontype,expempname,expincsal,expincorpromdate;
+	String act_policititle;
 	
 	public HRPage(WebDriver driver) {
 		super(driver);
@@ -152,7 +153,7 @@ public class HRPage extends BasePage {
 	}
 	public void submitincorpromotionform() {
     	WaitUtils.waitForElementVisible(driver, HRLocators.submit_btn, 30).click();
-    	log.info("clicked on create button or submitted the inc/promotion form");
+    	log.info("clicked on create button or submitted the  form");
     }
 	public void entercurrentdesignation(String currentdesig) {
 		// Click the input to open dropdown
@@ -228,5 +229,102 @@ public class HRPage extends BasePage {
 	        throw new RuntimeException("Failed to capture success popup!", e);
 	    }
 	}
+//Add holiday ********************************************************
+	public void navigatetoholidaymenu() {
+		try {
+            // Wait for main menu
+            WebElement holidaymenu = WaitUtils.waitForElementVisible(driver, HRLocators.main_holdays_menu, 15);
 
+            // Hover over main menu
+            Actions actions = new Actions(driver);
+           
+            log.info("Hovered over the payrolls  menu.");
+            actions.moveToElement(holidaymenu).click().perform();
+            
+         // Wait for submenu
+            WebElement incorpromotionmenu = WaitUtils.waitForElementVisible(driver, HRLocators.sub_hldy_menu, 50);
+            jsUtil=new JavaScriptUtility(driver);
+            jsUtil.scrollIntoView(incorpromotionmenu);
+            WaitUtils.waitForElementClickable(driver,HRLocators.sub_hldy_menu, 50);
+            try {
+            	incorpromotionmenu.click();
+                log.info("Clicked on holidays sub menu using standard click.");
+            } catch (Exception clickEx) {
+                log.warn("Standard click failed on holidays sub menu Trying JS click...");
+                jsUtil.clickElementByJS(incorpromotionmenu);
+                log.info("Clicked on holidays sub menu  using JS click.");
+            }
+            
+            log.info("Clicked on the holidays main menu.");
+
+        } catch (Exception e) {
+            log.error("Failed to navigate to holidays menu.", e);
+            throw new RuntimeException("Navigation to holidays failed!", e);
+        }
+	}
+	public void clickonaddnewholidaytab() {
+		WaitUtils.waitForElementVisible(driver, HRLocators.Add_new_holiday_tab, 30).click();
+	}
+	public void enternameofholiday(String holidayname) {
+		WaitUtils.waitForElementVisible(driver, HRLocators.holiday_name_inputbox, 30).sendKeys(holidayname);
+	}
+	public void enterholidayform(String holidayname,String month,String year,String date) {
+		enternameofholiday(holidayname);
+		clickonDatapicker();
+		enterincreamentDate(month,year,date);
+		submitincorpromotionform();
+	}
+	//policy adding 
+	public void clickonpolicybutton() {
+		WaitUtils.waitForElementVisible(driver, HRLocators.policybtn, 30).click();
+	}
+	public void clickaddnewpolicybtn() {
+		WaitUtils.waitForElementVisible(driver, HRLocators.addnewpolibtn, 30).click();
+	}
+	public void enterlocation(String locationname) {
+		// Click the input to open dropdown
+        WaitUtils.waitForElementVisible(driver, HRLocators.locationdrpdown, 20).click();
+
+        // Wait for all options to appear
+        WaitUtils.waitForElementVisible(driver, HRLocators.locationdropdownoptions, 20);
+
+        // Get all options dynamically
+        List<WebElement> options = driver.findElements(HRLocators.locationdropdownoptions);
+        for (WebElement option : options) {
+            if (option.getText().equals(locationname)) {
+                option.click();
+                log.info("Selected user: " + locationname);
+                break;
+            }
+        }
+	}
+	public void enterpolicytitle(String title) {
+		WaitUtils.waitForElementVisible(driver, HRLocators.policytitleinpputbox, 20).sendKeys(title);
+	}
+	public void enterdescription(String desc) {
+		WaitUtils.waitForElementVisible(driver, HRLocators.policydescription, 20).sendKeys(desc);
+	}
+	public void clickcreatefile() {
+		WaitUtils.waitForElementVisible(driver, HRLocators.createfileradbtn, 20).click();
+	}
+	public void enterletterdescription(String letter) {
+		WaitUtils.waitForElementVisible(driver, HRLocators.letterdesciptionofcreatefile, 20).sendKeys(letter);
+	}
+	public void clickcreatebtn() {
+		WaitUtils.waitForElementVisible(driver, HRLocators.createbtn, 20).click();
+	}
+	public void enterpolicydetails(String location,String title,String desc,String letter) {
+		String act_policititle=title;
+		enterlocation(location);
+		enterpolicytitle(title);
+		enterdescription(desc);
+		clickcreatefile();
+		enterletterdescription(letter);
+		
+		
+	}
+	public void clicklogout() {
+    	WaitUtils.waitForElementVisible(driver, HRLocators.logout, 15).click();
+    	WaitUtils.waitForElementVisible(driver,HRLocators.confirmlogout,20).click();
+    }
 }
