@@ -32,7 +32,7 @@ public void init() {
 	    );
 	
 }
-/*@Test(priority=1)
+@Test(priority=1)
 public void validateActiveempscount() {
 	int act = Integer.parseInt(empscountpg.getactiveempcount());
 	int exp = Integer.parseInt(empworkstatuspg.gettotalaactiveempcount());
@@ -51,7 +51,7 @@ public void validatetopperformer() {
 	Assert.assertEquals(exp_topperformername, act_topperformername, " top perfoemer data mismatch!");
 	Assert.assertEquals(exp_appreciationcount, act_appcount, " top perfoemer data mismatch!");
 	
-}*/
+}
 @Test
 public void validatecountsonempworkstatus() throws InterruptedException {
 	//getting counts from empworkstatus count

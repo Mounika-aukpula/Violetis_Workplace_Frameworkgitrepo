@@ -43,6 +43,7 @@ public class EmployeePage extends BasePage{
 	            throw new RuntimeException("Navigation to Leave failed!", e);
 	        }
 	}
+/* for doing validations on emp work statusunder Manaer dashboard*/
 	//get list of view elements
 	public List<WebElement> getallviewbtns(){
 		 List<WebElement> viewButtons= WaitUtils.waitForElementsVisible(driver, EmployeePageLocators.allrowsviewbtns, 15);
@@ -86,4 +87,14 @@ public class EmployeePage extends BasePage{
 
 	    return probationCount;
 	}
+/*dashboard activeemps count validations method*/
+	public void clickonactivetab() {
+		 WaitUtils.waitForElementVisible(driver, EmployeePageLocators.activetab, 15).click();
+	}
+	public int getallrowscount() {
+		List<WebElement> allrows=WaitUtils.waitForElementsVisible(driver, EmployeePageLocators.allrows, 15);
+		int rows=allrows.size();
+		return rows;
+	}
+	
 }

@@ -13,8 +13,20 @@ public class DashboardEMPcountPage extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 	public String getactiveempcount() {
-		String totalemployeecount= WaitUtils.waitForElementVisible(driver, ManagerdashboardLocators.totalactempcount, 10).getText();
+		String totalactiveemployeecount= WaitUtils.waitForElementVisible(driver, ManagerdashboardLocators.totalactempcount, 10).getText();
+		return totalactiveemployeecount;
+	}
+	public String gettotalempscount() {
+		String totalemployeecount= WaitUtils.waitForElementVisible(driver, ManagerdashboardLocators.totalemps, 10).getText();
 		return totalemployeecount;
+	}
+	public String getinactiveempscount() {
+		String totalinactiveemployeescount= WaitUtils.waitForElementVisible(driver, ManagerdashboardLocators.totalinactemps, 10).getText();
+		return totalinactiveemployeescount;
+	}
+	public String getunderyouempscount() {
+		String totalunderyouemployeescount= WaitUtils.waitForElementVisible(driver, ManagerdashboardLocators.totalempsunderyou, 10).getText();
+		return totalunderyouemployeescount;
 	}
 	
 

@@ -5,6 +5,12 @@ import org.openqa.selenium.By;
 import com.violetis.Utilities.WaitUtils;
 
 public class HRExpensesLocators {
+//counts locators
+public static final By totalempcount=By.xpath("(//h2[@class='text-2xl font-bold text-gray-800'])[1]");
+public static final By totalactemps=By.xpath("(//h2[@class='text-2xl font-bold text-gray-800'])[2]");
+public static final By totalinactemps=By.xpath("(//h2[@class='text-2xl font-bold text-gray-800'])[3]");
+public static final By totalempsunderyou=By.xpath("(//h2[@class='text-2xl font-bold text-gray-800'])[4]");
+
 public static final By finance_btn=By.xpath("//span[contains(text(),'Finance')]");
 public static final By expenses_submenu=By.xpath("//span[contains(text(),'Expenses')]");
 public static final By selectexpensetyedrpdown=By.xpath("//input[@id='rc_select_11']");

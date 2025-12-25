@@ -116,6 +116,17 @@ public class WaitUtils {
 	    return wait.until(ExpectedConditions.elementToBeClickable(element));
 		
 	}
+	public static List<WebElement> waitForElementsPresent(
+	        WebDriver driver, By locator, int timeout) {
+
+	    return new WebDriverWait(driver, Duration.ofSeconds(timeout))
+	            .until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+	}
+	public static void waitForPageToLoad(WebDriver driver) {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	    wait.until(webDriver -> ((JavascriptExecutor) webDriver)
+	            .executeScript("return document.readyState").equals("complete"));
+	}
 
 	
     
