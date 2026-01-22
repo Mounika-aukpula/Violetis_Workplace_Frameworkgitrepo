@@ -44,7 +44,7 @@ public class EmpAssetsTest extends BaseTest {
 			        ConfigReader.getProperty("hrusername"),
 			        ConfigReader.getProperty("hrpassword")
 			    );
-	    	hrassetspg.NavigatetoAssetsmenu();
+	    	hrassetspg.navigatetoAssetsPage();
 	    	/*hrassetspg.clickonAddNewAssits();
 	    	hrassetspg.fillassetsform("Mouse","mouse","India",dynamicsno,"sampledescription");
 	    	hrassetspg.clickoncreate();*/

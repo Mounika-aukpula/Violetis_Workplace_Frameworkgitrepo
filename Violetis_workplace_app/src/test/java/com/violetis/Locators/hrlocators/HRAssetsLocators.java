@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 
 
 public class HRAssetsLocators {
-public static final By assetsbtn=By.xpath("//*[@id=\"components-layout-demo-responsive\"]/section/aside/div/div[2]/div[2]/ul/li[3]/div/span");
-public static final By aseetssub_menu=By.xpath("//*[@id=\"sub_menu_2_$$_assets-popup\"]/li[2]/span");
+public static final By assetsmenu=By.xpath("(//span[contains(text(),'Assets')])[1]");
+public static final By aseetssub_menu=By.xpath("(//span[contains(text(),'Assets')])[2]");
 public static final By addnewassetbtn=By.xpath("//span[normalize-space()='Add New Asset']");
 public static final By assetname=By.xpath("//input[@id='form_item_name']");
 public static final By assettypedrpdown=By.xpath("//input[@id='form_item_asset_type_id']");
@@ -17,6 +17,17 @@ public static final By createbtn=By.xpath("//span[normalize-space()='Create']");
 public static final By descriptionbox=By.xpath("//textarea[@id='form_item_description']");
 public static final By rowcounts=By.xpath("//tbody[@class='ant-table-tbody']//tr");
 public static final By colcells=By.xpath("//tbody[@class='ant-table-tbody']//tr//td");
+public static final By workingtab=By.xpath("(//div[contains(text(),'Working')])[1]");
+public static final By notworkingtab=By.xpath("(//div[contains(text(),'Working')])[2]");
+//notworking tab locators
+public static final By assetnames=By.xpath(".//td[2]/a");
+public static final By assettypes=By.xpath(".//td[3]");
+public static final By lentoeles=By.xpath(".//td[5]//div");
+public static final By locationeles=By.xpath(".//td[6]");
+public static final By snoeles=By.xpath(".//td[7]");
+public static final By statuseles=By.xpath(".//td[8]/span");
+public static final By allnotworkingassetsrows=By.xpath(".//tbody//tr");
+
 //lenttolocators
 public static final By lendtousernamedrpdown=By.xpath("//input[@id='form_item_user_id']");
 public static final By lendtouserdrpdownoptions=By.xpath("//div[@class='rc-virtual-list-holder-inner']/div");

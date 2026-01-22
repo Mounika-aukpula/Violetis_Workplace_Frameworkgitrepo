@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class AssetsLocators {
 	public static final By Assetsmenu=By.xpath("(//span[contains(text(),'Assets')])[1]");
 	public static final By Assetssubmenu=By.xpath("(//span[contains(text(),'Assets')])[2]");
-	public static final By selectlocationdrpdown=By.xpath("//span[contains(text(),'Select Location...')]");
+	public static final By selectlocationdrpdown=By.xpath("(//input[contains(@id,'rc_select')])[1]");
 	public static final By selectlocationoptions=By.xpath("//div[@class='rc-virtual-list-holder-inner']/div");
 	public static final By selectbyuserdrpdown=By.xpath("(//input[contains(@id,'rc_select')])[2]");
 	public static final By selectbyuseroptions=By.xpath("(//div[@class='rc-virtual-list-holder-inner'])[2]/div");
@@ -14,5 +14,14 @@ public class AssetsLocators {
 	public static final By notworkingtab=By.xpath("//div[contains(text(),'Not Working')]");
 	public static final By pagenextnavigation=By.xpath("//span[@aria-label='right']//*[name()='svg']");
 	public static final By lastpahgenumber=By.xpath("(//li[contains(@class,'ant-pagination-item ant-pagination-item')])[last()]/a");
-	
+	//not working tab locators
+	public static final By assetnames=By.xpath(".//td[2]/a");
+	public static final By assettypes=By.xpath(".//td[3]");
+	public static final By lentoeles=By.xpath(".//td[5]//div");
+	public static final By locationeles=By.xpath(".//td[6]");
+	public static final By snoeles=By.xpath(".//td[7]");
+	public static final By statuseles=By.xpath(".//td[8]/span");
+	public static final By allnotworkingassetsrows=By.xpath(".//tbody//tr");
+	//
+	public static final By uname=By.xpath("//input[@id='_R_1h6kqsqppb6amH1_']");
 }

@@ -2,7 +2,9 @@ package com.violetis.Pages.HrPage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,6 +16,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.violetis.Base.BasePage;
 import com.violetis.Locators.ManagerLocators;
+import com.violetis.Locators.ManagerPageLocators.AssetsLocators;
 import com.violetis.Locators.hrlocators.HRAssetsLocators;
 import com.violetis.Utilities.WaitUtils;
 
@@ -22,21 +25,22 @@ public class HrAssetsPage extends BasePage {
 	public HrAssetsPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
+		
 	}
 	
-	public void NavigatetoAssetsmenu() {
+	public void navigatetoAssetsPage() {
 		 try {
 	            // Wait for main menu
-	            WebElement mainMenu = WaitUtils.waitForElementVisible(driver,HRAssetsLocators.assetsbtn, 15);
+	            WebElement mainMenu = WaitUtils.waitForElementVisible(driver, HRAssetsLocators.assetsmenu, 15);
 
 	            // Hover over main menu
 	            Actions actions = new Actions(driver);
 	           
-	            log.info("Hovered over the Assets main menu.");
+	            log.info("Hovered over the main menu.");
 	            actions.moveToElement(mainMenu).click().perform();
 
 	            // Wait for submenu
-	            WebElement subMenu = WaitUtils.waitForElementVisible(driver,HRAssetsLocators.aseetssub_menu, 15);
+	            WebElement subMenu = WaitUtils.waitForElementVisible(driver,AssetsLocators.Assetssubmenu, 15);
 	            actions.moveToElement(subMenu).click().perform();
 	            
 	            log.info("Clicked on the Assets submenu.");
@@ -45,6 +49,12 @@ public class HrAssetsPage extends BasePage {
 	            log.error("Failed to navigate to Assets.", e);
 	            throw new RuntimeException("Navigation to Assets failed!", e);
 	        }
+	}
+	public void clickonworkingtab() {
+	    WaitUtils.waitForElementVisible(driver,HRAssetsLocators.workingtab, 15).click();
+	}
+	public void clickonnotworkingtab() {
+	    WaitUtils.waitForElementVisible(driver,HRAssetsLocators.notworkingtab, 15).click();
 	}
 	public void clickonAddNewAssits() {
 	    WaitUtils.waitForElementVisible(driver,HRAssetsLocators.addnewassetbtn, 15).click();
@@ -280,6 +290,33 @@ public class HrAssetsPage extends BasePage {
 		
 	}
 	//return module functionality
+	//not working tab methods
+	 public List<Map<String, String>> getAllNotWorkingAssets() throws InterruptedException{
+		 Thread.sleep(5000);
+		 List<Map<String, String>> assetsList = new ArrayList<>();
+		  // Locate all rows
+	        List<WebElement> notworkingassetrows = WaitUtils.waitForElementsVisible(driver, HRAssetsLocators.allnotworkingassetsrows, 20);
+	        for (WebElement row : notworkingassetrows) {
+	            Map<String, String> assetData = new HashMap<>();
+	          String  AssetName=WaitUtils.waitForElementVisible(driver, HRAssetsLocators.assetnames, 20).getText();
+	          String  Assettype=WaitUtils.waitForElementVisible(driver, HRAssetsLocators.assettypes, 20).getText();
+	          String  Lentto=WaitUtils.waitForElementVisible(driver, HRAssetsLocators.lentoeles, 20).getText();
+	          String  Location=WaitUtils.waitForElementVisible(driver, HRAssetsLocators.locationeles, 20).getText();
+	          String  Sno=WaitUtils.waitForElementVisible(driver, HRAssetsLocators.snoeles, 20).getText();
+	          String  Status=WaitUtils.waitForElementVisible(driver, HRAssetsLocators.statuseles, 20).getText();
+	          assetData.put("AssetName", AssetName);
+	          assetData.put("AssetType", Assettype);
+	          assetData.put("LentTo", Lentto);
+	          assetData.put("Location", Location);
+	          assetData.put("SerialNumber", Sno);
+	          assetData.put("Status", Status);
+
+	          assetsList.add(assetData);
+	      }
+
+	      return assetsList;
+	    
+	 }
 	
 	
 }

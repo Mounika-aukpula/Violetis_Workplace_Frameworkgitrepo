@@ -1,14 +1,19 @@
 package com.violetis.Pages.ManagerPackage;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import com.violetis.Base.BasePage;
 import com.violetis.Locators.ManagerPageLocators.AppreciationsPageLocators;
 import com.violetis.Locators.ManagerPageLocators.AssetsLocators;
+import com.violetis.Locators.hrlocators.HRAssetsLocators;
 import com.violetis.Utilities.WaitUtils;
 
 public class Assetspage extends BasePage{
@@ -50,7 +55,7 @@ public class Assetspage extends BasePage{
 	}
 	 public void SelectBylocation(String location) {
 		 // Click the input to open dropdown
-	        WaitUtils.waitForElementVisible(driver,AssetsLocators.selectlocationdrpdown , 10).click();
+	        WaitUtils.waitForElementClickable(driver,AssetsLocators.selectlocationdrpdown , 10).click();
 
 	        // Wait for all options to appear
 	        WaitUtils.waitForElementVisible(driver, AssetsLocators.selectlocationoptions, 5);
@@ -82,5 +87,65 @@ public class Assetspage extends BasePage{
 	            }
 	        }
 	 }
+	
+	//not working tab methods
+		 public List<Map<String, String>> getAllNotWorkingAssets() throws InterruptedException{
+			 Thread.sleep(5000);
+			 List<Map<String, String>> assetsList = new ArrayList<>();
+			  // Locate all rows
+		        List<WebElement> notworkingassetrows = WaitUtils.waitForElementsVisible(driver, AssetsLocators.allnotworkingassetsrows, 20);
+		        for (WebElement row : notworkingassetrows) {
+		            Map<String, String> assetData = new HashMap<>();
+		          String  AssetName=WaitUtils.waitForElementVisible(driver, AssetsLocators.assetnames, 20).getText();
+		          String  Assettype=WaitUtils.waitForElementVisible(driver, AssetsLocators.assettypes, 20).getText();
+		          String  Lentto=WaitUtils.waitForElementVisible(driver, AssetsLocators.lentoeles, 20).getText();
+		          String  Location=WaitUtils.waitForElementVisible(driver, AssetsLocators.locationeles, 20).getText();
+		          String  Sno=WaitUtils.waitForElementVisible(driver, AssetsLocators.snoeles, 20).getText();
+		          String  Status=WaitUtils.waitForElementVisible(driver, AssetsLocators.statuseles, 20).getText();
+		          assetData.put("AssetName", AssetName);
+		          assetData.put("AssetType", Assettype);
+		          assetData.put("LentTo", Lentto);
+		          assetData.put("Location", Location);
+		          assetData.put("SerialNumber", Sno);
+		          assetData.put("Status", Status);
+
+		          assetsList.add(assetData);
+		      }
+
+		      return assetsList;
+		    
+		 }
+		 public void validatinglocationbyfilter(String location) throws InterruptedException {
+			
+			 Thread.sleep(5000);
+			 SelectBylocation(location);
+			 Thread.sleep(5000);
+			  // Locate all rows
+		        List<WebElement> notworkingassetrows = WaitUtils.waitForElementsVisible(driver, AssetsLocators.allnotworkingassetsrows, 20);
+		        for (WebElement row : notworkingassetrows) {
+		        	 String  act_Location=WaitUtils.waitForElementVisible(driver, AssetsLocators.locationeles, 20).getText();
+		        	 Assert.assertEquals(
+		        			 act_Location.trim(),
+		                     location.trim(),
+		                     "❌ Location filter mismatch"
+		             );
+		        }
+		 }
+		 public void validateassettypebyfilter(String assettype) throws InterruptedException {
+			 Thread.sleep(5000);
+			 searchbyasset(assettype);
+			 Thread.sleep(5000);
+			  // Locate all rows
+		        List<WebElement> notworkingassetrows = WaitUtils.waitForElementsVisible(driver, AssetsLocators.allnotworkingassetsrows, 20);
+		        for (WebElement row : notworkingassetrows) {
+		        	 String  act_assettype=WaitUtils.waitForElementVisible(driver, AssetsLocators.assettypes, 20).getText();
+		        	 Assert.assertEquals(
+		        			 act_assettype.trim(),
+		        			 assettype.trim(),
+		                     "❌ Assettype filter mismatch"
+		             );
+		        }
+		 }
+		
 
 }

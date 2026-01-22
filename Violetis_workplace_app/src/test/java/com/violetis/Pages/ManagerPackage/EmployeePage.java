@@ -2,6 +2,7 @@ package com.violetis.Pages.ManagerPackage;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -42,6 +43,9 @@ public class EmployeePage extends BasePage{
 	            log.error("Failed to navigate to Leave.", e);
 	            throw new RuntimeException("Navigation to Leave failed!", e);
 	        }
+	}
+	public void clickonalltab() {
+		WaitUtils.waitForElementVisible(driver,EmployeePageLocators.alltab, 15).click();
 	}
 /* for doing validations on emp work statusunder Manaer dashboard*/
 	//get list of view elements
@@ -96,5 +100,21 @@ public class EmployeePage extends BasePage{
 		int rows=allrows.size();
 		return rows;
 	}
-	
+	//for appreciations user name validation
+	  /**
+     * Get all employee names from Employees → All tab
+	 * @throws InterruptedException 
+     */
+    public List<String> getAllEmployeeNames() throws InterruptedException {
+        List<String> empNames = new ArrayList<>();
+        Thread.sleep(3000);
+        List<WebElement> elements = driver.findElements(EmployeePageLocators.allrowsusernames);
+        for (WebElement ele : elements) {
+            empNames.add(ele.getText().trim());
+        }
+        return empNames;
+    }
+	public void dashboardnavigation() {
+		WaitUtils.waitForElementVisible(driver, EmployeePageLocators.dasboardlink, 15).click();
+	}
 }

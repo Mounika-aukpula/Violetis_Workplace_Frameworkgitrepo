@@ -1,6 +1,12 @@
 package com.violetis.Pages.ManagerPackage;
 
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +14,6 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.violetis.Base.BasePage;
 import com.violetis.Locators.ManagerPageLocators.AppreciationsPageLocators;
-import com.violetis.Locators.ManagerPageLocators.EmployeePageLocators;
-import com.violetis.Locators.ManagerPageLocators.ManagerAttendencedetailsLocators;
 import com.violetis.Utilities.WaitUtils;
 
 public class AppreciationsPage extends BasePage{
@@ -93,5 +97,204 @@ public class AppreciationsPage extends BasePage{
 	            }
 	        }
 	 }
+	 public void selectawarddrpdown(String selectaward) {
+		 WaitUtils.waitForElementVisible(driver,AppreciationsPageLocators.selectawarddrpdown , 10).click();
+		 WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.awarddrpeles, 5);
+		// Get all options dynamically
+	        List<WebElement> options = driver.findElements(AppreciationsPageLocators.awarddrpeles);
+	        for (WebElement option : options) {
+	            if (option.getText().equals(selectaward)) {
+	                option.click();
+	                log.info("Selected user: " + selectaward);
+	                break;
+	            }
+	        }
+	 }
+	 //for appreciations table validations
+	 public List<String> getselectawarddrpoptionsdata() {
+		 WaitUtils.waitForElementVisible(driver,AppreciationsPageLocators.selectawarddrpdown , 10).click();
+		 // Wait for all options to appear
+	        WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.awarddrpeles, 5);
+
+	        // Get all options dynamically
+	        List<WebElement> options =WaitUtils.waitForElementsVisible(driver,AppreciationsPageLocators.awarddrpeles,10);
+	        
+	     // Store option texts
+	        List<String> optionTexts = new ArrayList<>();
+	        for (WebElement option : options) {
+	        	String text = option.getText().trim();
+	            if (!text.isEmpty()) {
+	                optionTexts.add(text);
+	            }
+	            }
+	        return optionTexts;
+	        }
+	 /**
+	     * Get all users who received appreciations
+	 * @throws InterruptedException 
+	     */
+	    public List<String> getAppreciatedUserNames() throws InterruptedException {
+	        List<String> users = new ArrayList<>();
+	        Thread.sleep(3000);
+	        List<WebElement> elements =WaitUtils.waitForElementsVisible(driver, AppreciationsPageLocators.usernames, 15);
+	        for (WebElement ele : elements) {
+	            users.add(ele.getText().trim());
+	        }
+	        return users;
+	    }
+	    // get all dated and validate detcols
+	    /**
+	     * Get all appreciation date values
+	     */
+	    public List<String> getAppreciationDates() {
+	        List<String> dates = new ArrayList<>();
+
+	        List<WebElement> elements =WaitUtils.waitForElementsVisible(driver, AppreciationsPageLocators.dateeles, 15);
+	        for (WebElement ele : elements) {
+	            dates.add(ele.getText().trim());
+	        }
+	        return dates;
+	    }
 	
+
+/**
+ * Get unique awards from Award column
+ */
+public Set<String> getAwardsFromTable() {
+    Set<String> awards = new HashSet<>();
+
+    List<WebElement> elements =WaitUtils.waitForElementsVisible(driver, AppreciationsPageLocators.awardeles, 15);
+    for (WebElement ele : elements) {
+        awards.add(ele.getText().trim());
+    }
+    return awards;
 }
+
+/**
+ * Get awards from Select Award dropdown
+ */
+public Set<String> getAwardsFromDropdown() {
+    Set<String> awards = new HashSet<>();
+
+    WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.selectawarddrpdown, 15).click();
+    List<WebElement> elements = WaitUtils.waitForElementsVisible(driver, AppreciationsPageLocators.awarddrpeles, 15);
+    for (WebElement ele : elements) {
+        awards.add(ele.getText().trim());
+    }
+    return awards;
+}
+/**
+ * Get all price amount values
+ */
+public List<String> getPriceAmounts() {
+    List<String> prices = new ArrayList<>();
+
+    List<WebElement> elements = WaitUtils.waitForElementsVisible(driver, AppreciationsPageLocators.priceamteles, 15);
+    for (WebElement ele : elements) {
+        prices.add(ele.getText().trim());
+    }
+    return prices;
+}
+//*******************************************
+//Add new appreciations module action methods
+public void clickaddnewappbtn() {
+	 WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.Addnewappbtn, 15).click();
+}
+public void enteruserdropdownoption(String uname) {
+	 WaitUtils.waitForElementVisible(driver,AppreciationsPageLocators.appuserdrpdown , 10).click();
+	 WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.appuserdrpoptions, 5);
+	// Get all options dynamically
+        List<WebElement> options = driver.findElements(AppreciationsPageLocators.appuserdrpoptions);
+        for (WebElement option : options) {
+            if (option.getText().equals(uname)) {
+                option.click();
+                log.info("Selected user: " + uname);
+                break;
+            }
+        }
+}
+public void enterawardtype(String awardtype) {
+	 WaitUtils.waitForElementVisible(driver,AppreciationsPageLocators.appawarddrpdown , 10).click();
+	 WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.appawrddrpoptions, 5);
+	// Get all options dynamically
+       List<WebElement> options = driver.findElements(AppreciationsPageLocators.appawrddrpoptions);
+       for (WebElement option : options) {
+           if (option.getText().equals(awardtype)) {
+        	   option.click();
+               log.info("Selected user: " + awardtype);
+               break;
+           }
+       }
+}
+public void enterappreciationdate(String month,String year, String day)
+{
+	WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.datepicketdrpdown, 15).click();
+	while(true) {
+		WebElement current_month=WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.month_ele, 10);
+	         String current_month_text=current_month.getText();
+	         System.out.println(current_month_text);
+	    WebElement current_year=WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.Year_ele, 10);
+	         String current_year_text=current_year.getText();
+	         System.out.println(current_year_text);
+	         if(current_month_text.equals(month) && (current_year_text.equals(year)))
+	         {
+	        	 break;
+	         }
+	         else
+	         {
+	        	 WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.month_forward_btn, 30).click(); 
+	         }
+	
+	        	 
+	}
+    
+	List<WebElement> alldates=WaitUtils.waitForElementsVisible(driver, AppreciationsPageLocators.dateele, 30);
+  for(WebElement dt:alldates) {
+	  if(dt.getText().equals(day))
+	  {
+		  dt.click();
+		  WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.ok_btn_datepicker, 20).click();
+		  break;
+	  }
+	  
+  }
+}
+public void enterprizemoney(String prizemoney) {
+	WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.priceinputbox, 15).sendKeys(prizemoney);
+}
+public void enteraccoutnno(String accname) {
+	 WaitUtils.waitForElementVisible(driver,AppreciationsPageLocators.acctnodrpdown , 10).click();
+	 WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.actnooptions, 5);
+	// Get all options dynamically
+      List<WebElement> options = driver.findElements(AppreciationsPageLocators.actnooptions);
+      for (WebElement option : options) {
+          if (option.getText().equals(accname)) {
+       	   option.click();
+              log.info("Selected user: " + accname);
+              break;
+          }
+      }
+}
+public void clickaddpricegivenbtn() {
+	WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.addpricegivenbtn, 15).click();
+}
+public void enterprizegivefordata(String prizengivenunder) {
+	WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.pricegiveninputbox, 15).sendKeys(prizengivenunder);
+}
+public void enterdescription(String desc) {
+	WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.descriptionbox, 15).sendKeys(desc);
+}
+public void clickcreatebtn() {
+	WaitUtils.waitForElementVisible(driver, AppreciationsPageLocators.createbtn, 15).click();
+}
+public void selectAppreciationDateAfterDays(int days) {
+    LocalDate targetDate = LocalDate.now().plusDays(days);
+    String month = targetDate.getMonth().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+    String year = String.valueOf(targetDate.getYear());
+    String day = String.valueOf(targetDate.getDayOfMonth());
+    enterappreciationdate(month, year, day);
+}
+}
+
+	
+

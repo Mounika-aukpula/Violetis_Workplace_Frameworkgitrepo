@@ -1,5 +1,6 @@
 package com.violetis.Pages.ManagerPackage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,5 +77,35 @@ public Map<String, String> mapUserToLeaveDates() {
 
     return userDateMap;
 }
+//Leaves page validations Action methods
+public void clickTab(String tabName) throws InterruptedException {
+    switch (tabName.toLowerCase()) {
+        case "all": WaitUtils.waitForElementVisible(driver, LeavepageLocators.alltab, 15).click(); break;
+        case "pending":WaitUtils.waitForElementVisible(driver, LeavepageLocators.pendingtabs, 15).click(); break;
+        case "approved": WaitUtils.waitForElementVisible(driver, LeavepageLocators.approvedtab, 15).click(); break;
+        case "rejected":WaitUtils.waitForElementVisible(driver, LeavepageLocators.rejectedtab, 15).click(); break;
+    }
+   Thread.sleep(3000);
+}
+public int getRowCount() {
+    return WaitUtils.waitForElementsVisible(driver,LeavepageLocators.allrows, 15).size();
+}
+public List<String> getStatuses() {
+    List<String> statuses = new ArrayList<>();
+    List<WebElement> statusColumn=WaitUtils.waitForElementsVisible(driver,LeavepageLocators.statuseles, 15);
+    for (WebElement status : statusColumn) {
+        statuses.add(status.getText().trim());
+    }
+    return statuses;
+}
 
+// Get actual header names from UI
+public List<String> getTableHeaderNames() {
+    List<String> headers = new ArrayList<>();
+    List<WebElement> tableHeaders=WaitUtils.waitForElementsVisible(driver,LeavepageLocators.tableheaders, 15);
+    for (WebElement header : tableHeaders) {
+        headers.add(header.getText().trim());
+    }
+    return headers;
+}
 }
